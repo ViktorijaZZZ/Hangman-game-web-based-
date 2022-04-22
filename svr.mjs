@@ -24,7 +24,7 @@ function getWord(req, res) {
 }
 
 function getGuesses(req, res) {
-  res.json(scoreCount);
+  res.json(scoreCount.guesses);
 }
 
 function getScore(req, res) {
@@ -32,6 +32,7 @@ function getScore(req, res) {
 }
 
 function sendScore(req, res) {
+  // get the client score, update the score count list with it
   const payloadWins = req.body.wins;
   const payloadLosses = req.body.losses;
   scoreCount.wins = payloadWins;
@@ -44,9 +45,11 @@ function addPlayer(req, res) {
   const payloadName = req.body.name;
   const isNewPlayer = checkPlayers(payloadName);
   if (isNewPlayer) {
+    // if player's name doesn't exist in current list, add it
     addPlayerWithScore(payloadName, scoreCount.wins, scoreCount.losses);
     res.json(true);
   } else {
+    // if the name already exists, warn player about it
     console.log(`The name '${payloadName}' already exists!!!`);
     res.json(false);
   }

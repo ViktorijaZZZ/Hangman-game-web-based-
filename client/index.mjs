@@ -330,8 +330,10 @@ async function setGuessCount() {
   const response = await fetch('guessCount');
   if (response.ok) {
     const lCount = await response.json();
-    guesses = lCount.guesses;
+    guesses = lCount;
   } else {
+    handles.errorMsg.textContent = 'Failed to load guesses!';
+    handles.errorMsg.hidden = false;
     guesses = [' *Could not load guesses* '];
   }
   handles.guessCount.textContent = `Guesses left: ${guesses}`;
