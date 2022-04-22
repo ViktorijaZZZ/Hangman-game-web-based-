@@ -59,16 +59,25 @@
 
 # **[FEATURES]**
 
+# ---
 # A server will host the game;
 # - It will store client values of lives, wins and losses.
 # - It will store all available categories as well as the words, which will be randomised and sent to the client once requested.
-# - 
+# - It will store the list of stats, where the names of the players as well as their score and unique user id will be stored and displayed on a console/terminal at server-side.
+# ---
+# ---
+# A client will prepare all handles once the page is loaded to effectively access DOM elements. These handles are modularised on a separate JS file.
+# A client will check event listeners for pressing mouse button and a key.
+# A client will fetch the score count list from the server where the lives, wins and losses are stored, diplay it on the web page.
+# Gallows will be displayed as canvas. A nice background is drawn and gallows are brown colour. The stickman is colour-coded in different stages of guesses.
+# Error messages will be displayed on a client web page and client console if any problems arise by fetching from or posting to the server.
+# ---
 
 # [HOW-TO-PLAY]
 # When the game starts, the player will be shown a category of the word, blanks for that hidden word and their chosen letter displayed with 'Your letter' as well as the disabled input box with 3 dots. (This only exists to show what letter they picked)
 
 # [1]
-# The player can either use the keyboard to press any key of their chose or press any button on the page to record that letter as their choice.
+# The player can either use the keyboard to press any key of their choice or press any button on the page to record that letter as their choice.
 
 # [2]
 # The game will also display how many guesses the player has left.

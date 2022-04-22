@@ -185,10 +185,16 @@ canvas {
     margin-bottom: 0.2em;
 }
 
+.promptButtons:hover{
+    background-color: grey;
+    color: white;
+}
+
 .promptButtons{
     font-size: 50%;
     padding: 3%;
     margin: 2%;
+    border-radius: 0.5em;
 }
 
 .restartPrompt{
@@ -212,13 +218,17 @@ canvas {
     left: 5em;
     border: 3px solid black;
 }
+#btnSend:hover{
+    background-color: grey;
+    color: white;
+}
 #btnSend{
     font-style: var(--main-font);
     font-size: 1em;
     text-align: center;
     margin: 1rem;
+    border-radius: 0.5em;
 }
-
 #nameInput{
     max-width: 50%;
     font-size: 1em;

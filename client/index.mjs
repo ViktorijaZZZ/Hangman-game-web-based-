@@ -320,7 +320,9 @@ async function displayScore() {
     scoreWins = sCount.wins;
     scoreLosses = sCount.losses;
   } else {
-    scoreWins = ['*Could not load wins/losses :-(*'];
+    handles.errorMsg.textContent = 'Could not load score';
+    handles.errorMsg.hidden = false;
+    scoreWins = scoreLosses = [':('];
   }
   handles.scoreCount.textContent = `Wins: ${scoreWins}\nLosses: ${scoreLosses}`;
 }
