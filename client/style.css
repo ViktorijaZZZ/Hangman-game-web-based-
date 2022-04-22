@@ -111,16 +111,17 @@ canvas {
 }
 
 .key{
-    margin: 0.5em;
+    margin: 0.1em;
     background: white;
     text-transform: uppercase;
-    padding: 0.9em 1.9em;
+    padding: 0.8em 1.6em;
     border-radius: 0.5em;
-    font-size: 1em;
+    font-size: 1.3em;
 }
 
 .key:hover{
     background-color: grey;
+    color: white;
 }
 .key:disabled{
     background-color: grey;
@@ -148,16 +149,18 @@ canvas {
     top: 3em;
     left: 27em;
     background-color:rgb(48, 76, 117);
-    color: red;
+    color: white;
     font-size: 1.7em;
 }
 
 #errorMsg {
-    position: relative;
-    left: 10em;
-    top: 3.5em;
-    color: red;
+    position: absolute;
+    background-color: rgb(240, 116, 116);
+    left: 6em;
+    top: 7em;
+    color: white;
     font-size: 3em;
+    border: 3px solid black;
 }
 
 #guessCount{
@@ -197,4 +200,26 @@ canvas {
     top: 3.5em;
     left: 5em;
     border: 3px solid black;
+}
+
+.nameClass {
+    position: absolute;
+    text-transform: uppercase;
+    background-color: rgb(240, 116, 116);
+    max-width: 35%;
+    font-size: 3em;
+    top: 3.5em;
+    left: 5em;
+    border: 3px solid black;
+}
+#btnSend{
+    font-style: var(--main-font);
+    font-size: 1em;
+    text-align: center;
+    margin: 1rem;
+}
+
+#nameInput{
+    max-width: 50%;
+    font-size: 1em;
 }

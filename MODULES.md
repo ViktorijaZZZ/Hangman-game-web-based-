@@ -6,14 +6,13 @@
 - `drawCanvas.mjs`,
 - `displayHiddenWord.mjs`,
 - `displayCategory.mjs`,
-- `displayMessge.mjs`,
+- `displayMessage.mjs`,
 - `prepareHandles.mjs`,
 - `createPrompt.mjs`,
 - `mouseClickCheck.mjs`,
 - `guessCount.mjs`,
 - `hideWord.mjs`,
-- `disableInputs.mjs`,
-- `enableInputs.mjs`.
+- `manageInputs.mjs`.
 
 
 **The file `mouseClickCheck.mjs` is using the modules below:**
