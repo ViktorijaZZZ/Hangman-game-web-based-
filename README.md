@@ -1,12 +1,12 @@
 # AppProgCwk
 
-# [GitPushNumber]
+# **[GitPushNumber]**
 
 # [1] Added all the files into here, the index.mjs will need more modularisation
 
 # pushed to github
 
-# [TESTING] button pushing
+# **[TESTING]** button pushing
 
 # [2] Ditched the idea of 'inputbox',
 # added letters as buttons instead,
@@ -30,38 +30,34 @@
 # [7]
 # improved coding structure and functions;
 # - Improved namings of functions and variables,
-# - The server is not at fixed state anymore (in case of multiplayer),
 # - In 'index.mjs', the switch statement was improved on function 'checkKeys',
 # - In 'index.mjs', the asynchronous functions that retrieve a random category and a word were improved,
 # - Improved validation of the input based on whichever key was presed on user keyboard,
 # - Removed the 'check' button as it was pointless to have it at this point,
 # - improved the design of the game more to make the UI appeal better, using grids.
 
-# [NEW_BRANCH]
+# **[NEW_BRANCH]**
 # added lint
 # [8]
 # Made some changes to the code and added package.json for 'eslint' config
 # [9]
-# Fixed problems identified by ESLint
+# Fixed all problems identified by ESLint (with portsoc config)
 
 # [10]
-# Added the name option after the player decides to finish playing the game through the prompt button 'No' asking to play again.
+# Added the name option after the player decides to finish playing the game through the prompt button 'No' after asking to play again.
 # If they choose 'Yes', the game will restart with defaulted variables.
 
-# [10]
-# When the player enters their name, that name along with their
-# wins and losses score will become an object and stored on a server.
-# Each time new player is added, the list of those players
-# will be displayed on the console/terminal on server-side.
-
 # [11]
-# Changed canvas properties as well as stickman colour-coding
-# to appeal better.
+# When the player enters their name, that name along with their wins and losses score will become an object and stored in the list on server.
+# Each time new player is added, the list of those players will be displayed on the console/terminal on server-side.
 
 # [12]
+# Changed canvas properties as well as stickman colour-coding to appeal better.
+
+# [13]
 # Ditched the idea of keeping most things on a server, because of more problems arising with it rather than using current state of the code.
 
-# [FEATURES]
+# **[FEATURES]**
 
 # A server will host the game;
 # - It will store client values of lives, wins and losses.
