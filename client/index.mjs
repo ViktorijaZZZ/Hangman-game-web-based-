@@ -1,14 +1,10 @@
 'use strict';
 
+import { displayCategory, displayMessage, displayHiddenWord, hideWord } from './displayVariables.mjs';
 import { createRestartPrompt, createNamePrompt } from './createPrompt.mjs';
 import { drawBackground, clearCanvas } from './drawCanvas.mjs';
-import { displayHiddenWord } from './displayHiddenWord.mjs';
-import { displayCategory } from './displayCategory.mjs';
-import { displayMessage } from './displayMessage.mjs';
 import { prepareHandles } from './prepareHandles.mjs';
-import { whatClicked } from './mouseClickCheck.mjs';
 import { guessCount } from './guessCount.mjs';
-import { hideWord } from './hideWord.mjs';
 import * as inputs from './manageInputs.mjs';
 
 let handles = {};
@@ -21,6 +17,7 @@ let guesses;
 let scoreWins;
 let scoreLosses;
 
+// get random word from the server and work on it from client-side
 async function getRandomWord(randomCat) {
   const response = await fetch('category/' + randomCat);
   if (response.ok) {
@@ -35,6 +32,7 @@ async function getRandomWord(randomCat) {
   }
 }
 
+// get random category from the server and work on it from client-side
 async function getRandomCategory() {
   const response = await fetch('category');
   if (response.ok) {
@@ -121,6 +119,7 @@ function restartPage(theClass, prompting) {
   displayScore();
 }
 
+// a name field will be created for fetching player's name
 function namePrompt(gameSection) {
   const namePromptClass = createNamePrompt(gameSection);
   const sendButton = document.querySelector('#btnSend');
@@ -257,13 +256,6 @@ export function letterCheck(who) {
     }
   }
 
-  /**
-     * Check if the chosen word has any whitespace
-     * if(randomWord.includes(' ')) {
-     *
-     * }
-     */
-
   // go through word array to find the letter in that word
   for (let i = 0; i < randomWord.length; i++) {
     // found a letter
@@ -343,7 +335,7 @@ async function setGuessCount() {
 
 function addEventListeners() {
   window.addEventListener('keydown', checkKeys);
-  window.addEventListener('mouseup', whatClicked);
+  window.addEventListener('mouseup', inputs.whatClicked);
 }
 
 function prepareHandle() {

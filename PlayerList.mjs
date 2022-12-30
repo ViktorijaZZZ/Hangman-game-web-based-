@@ -4,6 +4,7 @@ let listOfPlayers = [
   { playerId: 'EXAMPLE-ID', playerName: 'John', wins: 5, losses: 2 },
 ];
 
+// check if player name is same with another player already on stored list
 export function checkPlayers(newPlayer) {
   for (let i = 0; i < listOfPlayers.length; i += 1) {
     if (listOfPlayers[i].playerName.toLowerCase() === newPlayer.toLowerCase()) {

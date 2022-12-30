@@ -1,3 +1,5 @@
+
+// these functions will draw gallows and a colourful stickman
 export function drawBackground() {
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');

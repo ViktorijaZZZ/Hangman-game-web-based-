@@ -1,5 +1,6 @@
 const preparedHandles = {};
 
+// this function will take all the HTML elements as variables to manipulate them through javascript
 export function prepareHandles() {
   preparedHandles.gameSection = document.querySelector('#game');
   preparedHandles.word = document.querySelector('#hiddenWord');

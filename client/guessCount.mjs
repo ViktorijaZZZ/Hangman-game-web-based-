@@ -1,6 +1,8 @@
 import * as drawCanvas from './drawCanvas.mjs';
 
+// this function will draw gallows based on number of lives that will be left
 export function guessCount(guesses, isNotWrong) {
+  // this statement checks if the guess was correct
   if (isNotWrong) {
     return;
   }
