@@ -1,11 +1,13 @@
 
-// these functions will draw gallows and a colourful stickman
+/**
+ * These functions will draw gallows and a colourful stickman
+ * Each function is responsible for each gallow figure and stickman body parts
+ *  */
+
+
 export function drawBackground() {
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
-
-  // canvas width: 300
-  // height: 150
 
   // sky
   ctx.fillStyle = '#87CEEB';

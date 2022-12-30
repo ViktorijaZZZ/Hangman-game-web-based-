@@ -1,5 +1,6 @@
 'use strict';
 
+// here we take all the external files known as modules and use the functions within them
 import { displayCategory, displayMessage, displayHiddenWord, hideWord } from './displayVariables.mjs';
 import { createRestartPrompt, createNamePrompt } from './createPrompt.mjs';
 import { drawBackground, clearCanvas } from './drawCanvas.mjs';
@@ -107,11 +108,13 @@ function restartPage(theClass, prompting) {
 
   inputs.enableKeyButtons();
 
+  // remove the prompt after it was used
   if (prompting) {
     handles.gameSection.removeChild(theClass);
     prompting = false;
   }
 
+  // call these functions to reset the score, display and input fields
   clearCanvas();
   drawBackground();
   getRandomCategory();
@@ -159,7 +162,7 @@ function namePrompt(gameSection) {
   });
 }
 
-// create restart prompt box here
+// this function will create a prompt asking the user to restart the game
 function restartPrompt() {
   const gameSec = handles.gameSection;
 
@@ -278,7 +281,7 @@ export function letterCheck(who) {
   usedLetterstxt.textContent = `Used letters: ${usedLetters}`;
 }
 
-// this function may need to be deleted after testing
+// this function is validating user's input by monitoring which letters on real keyboard were pressed
 function validateInput(event) {
   // Letter pressed on keyboard between A to Z
   if (event.keyCode >= 65 && event.keyCode <= 90) {
@@ -338,11 +341,13 @@ function addEventListeners() {
   window.addEventListener('mouseup', inputs.whatClicked);
 }
 
+// prepare all HTML elements to manipulate them through Javascript
 function prepareHandle() {
   handles = prepareHandles();
   handles.errorMsg.hidden = true;
 }
 
+// prepare all necessary functions once the web page is loaded
 function pageLoaded() {
   prepareHandle();
   addEventListeners();
@@ -352,4 +357,5 @@ function pageLoaded() {
   drawBackground();
 }
 
+// this code will just load the page and the function once it is loaded
 window.addEventListener('load', pageLoaded);

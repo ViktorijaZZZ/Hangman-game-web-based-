@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="style.css">
+<!--
+    This 'meta' tag is used to tell the browser 
+    how to adjust the dimensions and scaling of the webpage to fit the width of the device being used to view it.
+-->
 <meta name="viewport" content="width=device-width, initial-scale=0.5">
 <script src="index.mjs" type="module"></script>
 <title>Hangman Game</title>
 
-
+<!-- In this 'main' tag, the whole game process will take place here-->
 <main>
     <div id="header">HANGMAN</div>
     <canvas width="300" height="200"></canvas>
@@ -23,6 +27,10 @@
         <p id="guessCount">Guesses left: </p>
         <p id="errorMsg"></p>
     
+        <!-- 
+            This is a div with keyboard id in it, to realistically represent buttons as keyboard.
+            That's why we split them into 3 rows. 
+        -->
         <div id="keyboard">
             <div id="letters_row1">
                 <button class="key" id="Q">Q</button>

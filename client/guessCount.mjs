@@ -1,12 +1,13 @@
 import * as drawCanvas from './drawCanvas.mjs';
 
-// this function will draw gallows based on number of lives that will be left
+// this function will draw gallows/stickman based on number of lives that will be left (From 8 to 0)
 export function guessCount(guesses, isNotWrong) {
   // this statement checks if the guess was correct
   if (isNotWrong) {
     return;
   }
 
+  // check how many lives are left, thereby drawing a specific gallow/stickman
   switch (guesses) {
     case 7:
       drawCanvas.drawSmallSticks();

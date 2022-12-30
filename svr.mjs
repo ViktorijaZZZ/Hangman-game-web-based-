@@ -9,7 +9,7 @@ import express from 'express';
 const app = express();
 app.use(express.static('client'));
 
-// prepare categories variable on server
+// prepare category list variable on server
 const categories = prepareCategories();
 
 function getCategory(req, res) {
@@ -41,6 +41,7 @@ function sendScore(req, res) {
   res.json(scoreCount);
 }
 
+// add player to server list
 function addPlayer(req, res) {
   const payloadName = req.body.name;
   const isNewPlayer = checkPlayers(payloadName);
