@@ -2,7 +2,7 @@
 
 // A 'use strict' keyword is here to make sure JavaScript code is executed through "strict mode"
 // Strict mode makes it easier to write "secure" JavaScript by eliminating some of the silent errors that are possible in normal JavaScript.
-// That way, it becomes easier to code and if certain errors arise, they are not ignored
+// That way, it becomes easier to code by avoiding creating vulnerabilities and securing the code
 
 import { selectRandomCategory, selectRandomWord } from './selectRandomCatWords.mjs';
 import { checkPlayers, addPlayerWithScore } from './PlayerList.mjs';
