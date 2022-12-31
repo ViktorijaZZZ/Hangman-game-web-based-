@@ -1,11 +1,19 @@
 'use strict';
 
+// A 'use strict' keyword is here to make sure JavaScript code is executed through "strict mode"
+// Strict mode makes it easier to write "secure" JavaScript by eliminating some of the silent errors that are possible in normal JavaScript.
+// That way, it becomes easier to code and if certain errors arise, they are not ignored
+
 import { selectRandomCategory, selectRandomWord } from './selectRandomCatWords.mjs';
 import { checkPlayers, addPlayerWithScore } from './PlayerList.mjs';
 import { prepareCategories } from './prepareCategories.mjs';
 import { scoreCount } from './scoreCount.mjs';
 import express from 'express';
 
+/**
+ * create a simple server using 'express.json'
+ * assign 'client' folder so that it is used as main client
+ */
 const app = express();
 app.use(express.static('client'));
 
