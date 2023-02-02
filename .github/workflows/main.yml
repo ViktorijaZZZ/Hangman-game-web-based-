@@ -1,35 +1,26 @@
-name: Deploy to Github Pages
+name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
-
-env:
-  PORT: 8080
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  deploy:
+  build:
+
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      
-    - name: Install dependencies
-      run: npm install
-
-    - name: Start server
-      run: node svr.mjs
-
-    - name: Deploy to Github Pages
-      run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "Github Actions"
-        git clone https://github.com/${{ github.repository }}.git deploy
-        cd deploy
-        rm -rf client
-        cp -rf ../client .
-        git add .
-        git commit -m "Deploy ${{ env.GITHUB_SHA }}"
-        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
