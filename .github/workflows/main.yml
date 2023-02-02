@@ -1,1 +1,29 @@
+name: Deploy to Github Pages
 
+on:
+  push:
+    branches:
+      - main
+
+env:
+  GITHUB_PAGES_BUILD_FOLDER: client
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start server
+      run: node svr.mjs
+
+    - name: Deploy to Github Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{ env.GITHUB_PAGES_BUILD_FOLDER }}
