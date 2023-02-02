@@ -13,17 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: |
+          npm install
 
-    - name: Start server
-      run: node svr.mjs
+      - name: Start server
+        run: |
+          node svr.mjs
+        env:
+          PORT: 8080
 
-    - name: Deploy to Github Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ${{ env.GITHUB_PAGES_BUILD_FOLDER }}
+      - name: Publish to Github Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.GITHUB_PAGES_BUILD_FOLDER }}
