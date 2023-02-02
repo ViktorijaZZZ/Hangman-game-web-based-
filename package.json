@@ -16,5 +16,18 @@
     "env": {
       "browser": true
     }
+  },
+  {
+  "name": "your_project_name",
+  "version": "1.0.0",
+  "description": "Description of your project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node svr.mjs"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
+}
+
 }
