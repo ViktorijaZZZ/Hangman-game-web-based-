@@ -1,7 +1,6 @@
 import uuid from 'uuid-random';
 import fs from 'fs';
 
-
 // A list in which the player's name and score will be stored in here
 // { playerId: 'EXAMPLE-ID', playerName: 'John', wins: 5, losses: 2 }
 let listOfPlayers = [];
@@ -28,8 +27,12 @@ loadPlayers();
 
 // this function will store player list on a separate .json file
 function storePlayers() {
-  const data = JSON.stringify(listOfPlayers);
-  fs.writeFileSync('savedPlayers.json', data);
+  if (process.env.CANSAVE == false) {
+
+  } else {  
+    const data = JSON.stringify(listOfPlayers);
+    fs.writeFileSync('savedPlayers.json', data);
+  }
 }
 
 // check if player name is same with another player already on stored list
