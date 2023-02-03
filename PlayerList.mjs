@@ -27,7 +27,7 @@ loadPlayers();
 
 // this function will store player list on a separate .json file
 function storePlayers() {
-  if (process.env.CANSAVE == false) {
+  if (process.env.CANSAVE == "false") {
 
   } else {  
     const data = JSON.stringify(listOfPlayers);
