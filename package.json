@@ -5,7 +5,7 @@
   "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "start": "npm install express && node svr.js"
+    "start": "node svr.js"
   },
   "dependencies": {
     "express": "^4.18.2",
