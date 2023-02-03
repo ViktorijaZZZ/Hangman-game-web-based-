@@ -1,17 +1,29 @@
 <!DOCTYPE html>
+
+<!-- this 'link' tag tells the browser to import external file 'style.css' as a design of this webpage -->
 <link rel="stylesheet" href="style.css">
+
 <!--
     This 'meta' tag is used to tell the browser 
     how to adjust the dimensions and scaling of the webpage to fit the width of the device being used to view it.
 -->
 <meta name="viewport" content="width=device-width, initial-scale=0.5">
-<script src="index.mjs" type="module"></script>
+
+<!-- this 'script' tag will tell the browser to use JavaScript code from external file as a main source. -->
+<script src="index.mjs"></script>
+
+<!-- Webpage title -->
 <title>Hangman Game</title>
 
 <!-- In this 'main' tag, the whole game process will take place here-->
 <main>
+    <!-- We identify the header to show what game the user is playing -->
     <div id="header">HANGMAN</div>
+    
+    <!-- canvas will be drawn here to represent gallows and stickman -->
     <canvas width="300" height="200"></canvas>
+    
+    <!-- This section is the box that you see on the right side, the user's input area-->
     <section id="game">
         <p id="scoreCount">*testing*</p>
         <p id="warningMsg"></p>
@@ -20,6 +32,7 @@
         <p id="yourword">Your word:</p>
         <p id="hiddenWord"></p>
         
+        <!-- this div is a small box which will display a letter that was used to guess -->
         <div class="inputTypes"> Your letter: 
             <input type="text" disabled="true" id="inputBox" placeholder="..." maxlength="1">
         </div>

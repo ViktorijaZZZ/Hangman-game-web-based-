@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This project is a web-based game, running on localhost server in plain js",
   "main": "index.mjs",
+  "type": "module",
   "scripts": {
     "start": "npm install express && node svr.js"
   },
