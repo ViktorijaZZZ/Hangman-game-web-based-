@@ -8,6 +8,7 @@ import { prepareHandles } from './prepareHandles.mjs';
 import { guessCount } from './guessCount.mjs';
 import * as inputs from './manageInputs.mjs';
 
+// here we define global variables
 let handles = {};
 let randomWord = [];
 let usedLetters = [];
@@ -23,10 +24,12 @@ async function getRandomWord(randomCat) {
   const response = await fetch('category/' + randomCat);
   if (response.ok) {
     const fetchedWord = await response.json();
+    // assign random word into global variable, then hide it and display only this: _ _ _ _
     randomWord = fetchedWord.toLowerCase();
     hiddenWord = hideWord(fetchedWord);
     displayHiddenWord(hiddenWord);
   } else {
+    // otherwise, if the word couldn't be retrieved from the server, display an error 
     handles.errorMsg.hidden = false;
     handles.errorMsg.textContent = 'Word failed to load';
     throw new Error(`[${response.status}] connection failed;\n- Word failed to load`);
@@ -41,10 +44,11 @@ async function getRandomCategory() {
     // display category output taken from server
     handles.category.value = fetchedCategory;
     displayCategory(fetchedCategory);
-
+    
     // request a random word in that category from server
     getRandomWord(fetchedCategory);
   } else {
+    // otherwise, if the word couldn't be retrieved from the server, display an error 
     handles.errorMsg.hidden = false;
     handles.errorMsg.textContent = 'Category failed to load';
     throw new Error(`[${response.status}] connection failed;\n- category failed to load`);
@@ -65,8 +69,9 @@ async function sendScore(scrW, scrL) {
     scoreCount.losses = scoreLosses;
     handles.scoreCount.textContent = `Wins: ${scoreCount.wins}\nLosses: ${scoreCount.losses}`;
   } else {
+    // if the client couldn't send the score into server, display error message
     handles.scoreCount.textContent = ['*Could not load new score :-(*'];
-    throw new Error(`[${response.status}] connection failed;\n- Word failed to load`);
+    throw new Error(`[${response.status}] connection failed;\n- updated score failed to load`);
   }
 }
 
@@ -81,7 +86,7 @@ async function sendPlayerStat(playerName) {
   if (response.ok) {
     const playerAdded = await response.json();
     if (!playerAdded) {
-    // the player was not added to server list
+    // the player was not added to server list, it already exists in player list on server side
       handles.errorMsg.textContent = 'The name already exists!';
       handles.errorMsg.hidden = false;
     } else {
@@ -93,7 +98,7 @@ async function sendPlayerStat(playerName) {
   }
 }
 
-// when the page is restarted, all the required variables will be reset,
+// when the web page is restarted, all the required variables will be reset,
 // canvas will be redrawn.
 function restartPage(theClass, prompting) {
   randomWord = [];
@@ -108,7 +113,7 @@ function restartPage(theClass, prompting) {
 
   inputs.enableKeyButtons();
 
-  // remove the prompt after it was used
+  // remove the restart prompt after it was used
   if (prompting) {
     handles.gameSection.removeChild(theClass);
     prompting = false;
