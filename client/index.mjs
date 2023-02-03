@@ -136,11 +136,13 @@ function namePrompt(gameSection) {
     // check if any restricted character is in the name
     const restrictedCHARS = ['!', ',', '.', '#', '¬', '`', '/', '|'];
     const name = document.querySelector('#nameInput');
+    
+    // first loop for restricted characters
     for (let i = 0; i < restrictedCHARS.length; i += 1) {
-      // first loop for restricted characters
+      // second loop for letters in the name
       for (let j = 0; j < name.value.length; j += 1) {
         if (name.value[j] === restrictedCHARS[i]) {
-          // the name contains restricted character
+          // check if the name contains restricted character
           console.log(`The name '${name.value}' contains restricted character '${restrictedCHARS[i]}'`);
           name.style.backgroundColor = 'red';
           handles.errorMsg.textContent = 'Your name contains restricted characters!';
@@ -163,6 +165,8 @@ function namePrompt(gameSection) {
     if (gameSection.contains(namePromptClass)) {
       gameSection.removeChild(namePromptClass);
     }
+    // the game for this user is finished, so the webpage background is represented grey as a finish
+    // if the user wishes to replay the game, restart the web page
     document.body.style.background = 'grey';
   });
 }
@@ -193,6 +197,8 @@ function restartPrompt() {
   btnYes.textContent = 'Yes';
   btnNo.textContent = 'No';
 
+  // add these buttons to the new class of prompt,
+  // then add into main game section
   newClass.append(btnYes);
   newClass.append(btnNo);
   gameSec.append(newClass);
@@ -227,9 +233,9 @@ function gameStop(condition, rWord, sWins, sLosses) {
   restartPrompt();
 }
 
-// The function will monitor the guess count.
+// The function will monitor the guess count. (or life count)
 // It accepts 'guess' as 'gCount' (which is an int or number)
-// it stops the game and sends true/false condition after checking whether the player won or lost
+// it stops the game and sends true/false condition after checking whether the player won or lost, based on their guesses
 function monitorGuess(gCount, rWord, scoreW, scoreL, isNotWrong) {
   guessCount(gCount, isNotWrong);
 
@@ -264,7 +270,7 @@ export function letterCheck(who) {
     }
   }
 
-  // go through word array to find the letter in that word
+  // loop through word array to find the letter in that word
   for (let i = 0; i < randomWord.length; i++) {
     // found a letter
     if (randomWord[i].includes(letter)) {
@@ -312,7 +318,11 @@ function checkKeys(e) {
   }
 }
 
-// get the score from server and display here
+// get the score list from server and display here
+/** i.e.
+ * Wins: 0
+ * Losses: 0
+ */
 async function displayScore() {
   const response = await fetch('getScore');
   if (response.ok) {
@@ -328,6 +338,9 @@ async function displayScore() {
 }
 
 // get the guess count from server and display here
+/**
+ * Guesses left: 8
+ */
 async function setGuessCount() {
   const response = await fetch('guessCount');
   if (response.ok) {
@@ -341,6 +354,7 @@ async function setGuessCount() {
   handles.guessCount.textContent = `Guesses left: ${guesses}`;
 }
 
+// this function will make sure even listeners are active for keyboard or mouse clicks
 function addEventListeners() {
   window.addEventListener('keydown', checkKeys);
   window.addEventListener('mouseup', inputs.whatClicked);
@@ -352,7 +366,7 @@ function prepareHandle() {
   handles.errorMsg.hidden = true;
 }
 
-// prepare all necessary functions once the web page is loaded
+// prepare all necessary functions to start game process once the web page is loaded
 function pageLoaded() {
   prepareHandle();
   addEventListeners();
@@ -362,5 +376,5 @@ function pageLoaded() {
   drawBackground();
 }
 
-// this code will just load the page and the function once it is loaded
+// this code will just load the page and the function
 window.addEventListener('load', pageLoaded);

@@ -36,8 +36,6 @@
 **The file `svr.mjs` is using the modules below:**
 - `selectRandomCatWord.mjs`,
 - `prepareCategories.mjs`,
+- `playerList.mjs`,
 - `scoreCount.mjs`,
 - `express`.
-
-**The file `selectRandomCatWords.mjs` is using one module below:**
-- `generateRandomNumber.mjs`.

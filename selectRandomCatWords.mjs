@@ -1,5 +1,6 @@
 'use strict';
 
+// generate a random number based on the parameter that is passed through the function
 function generateRandomNumber(fromThis) {
   const rNum = Math.floor(Math.random() * fromThis);
   return rNum;
@@ -17,6 +18,7 @@ export function selectRandomCategory(randomCategoryObject) {
   return category;
 }
 
+// same as above function, but this time for random word in specific category
 export function selectRandomWord(category, catList) {
   // list all words based on that random category
   const wordList = Object.values(catList[category]);

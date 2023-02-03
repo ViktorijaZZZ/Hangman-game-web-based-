@@ -2,12 +2,15 @@
 
 // A 'use strict' keyword is here to make sure JavaScript code is executed through "strict mode"
 // Strict mode makes it easier to write "secure" JavaScript by eliminating some of the silent errors that are possible in normal JavaScript.
-// That way, it becomes easier to code by avoiding creating vulnerabilities and securing the code
+// That way, it becomes easier to code by avoiding creating vulnerabilities and maintaining the code better
 
+// import modules from external files that this code will use
 import { selectRandomCategory, selectRandomWord } from './selectRandomCatWords.mjs';
 import { checkPlayers, addPlayerWithScore } from './PlayerList.mjs';
 import { prepareCategories } from './prepareCategories.mjs';
 import { scoreCount } from './scoreCount.mjs';
+
+// 'express' package is here for running the simple JavaScript server
 import express from 'express';
 
 /**
@@ -19,6 +22,10 @@ app.use(express.static('client'));
 
 // prepare category list variable on server
 const categories = prepareCategories();
+
+// Note: functions below starting with 'get', indicate that
+// a client requests specific information from the server based on those functions
+// then those functions will return a response towards the client with that required nformation
 
 function getCategory(req, res) {
   const randomCategory = selectRandomCategory(categories);
@@ -74,4 +81,7 @@ app.get('/getScore', getScore);
 app.post('/sendScore', express.json(), sendScore);
 app.post('/playerName', express.json(), addPlayer);
 
+// the server listens to port 8080 for incoming connections from clients
+// Note: Port 8080 is a common choice for a development server,
+// because it's not typically used by other services, and it's easy to remember.
 app.listen(8080);
