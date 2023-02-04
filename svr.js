@@ -43,6 +43,7 @@ function getGuesses(req, res) {
 }
 
 function getScore(req, res) {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.json(scoreCount);
 }
 
