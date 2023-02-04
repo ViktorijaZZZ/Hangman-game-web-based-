@@ -39,6 +39,7 @@ function getWord(req, res) {
 }
 
 function getGuesses(req, res) {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.json(scoreCount.guesses);
 }
 
